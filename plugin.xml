@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin>
+    <class>de.imc.mirror.spaces.SpacesPlugin</class>
+    <name>MIRROR Spaces Service</name>
+    <description>Central component of the MIRROR Spaces Framework.</description>
+    <author>Simon Schwantzer</author>
+    <version>0.6.1</version>
+    <date>01/09/2014</date>
+    <url>http://www.mirror-project.eu/</url>
+    <minServerVersion>3.8.2</minServerVersion>
+    <databaseKey>spaces</databaseKey>
+    <databaseVersion>2</databaseVersion>
+    
+    <adminconsole>
+        <tab id="tab-spaces" name="MIRROR Spaces" url="spaces-space-summary.jsp">
+            <sidebar id="settings" name="Settings">
+               <item id="general-settings" name="General Settings" url="general-settings.jsp" description="General settings for the MIRROR Spaces Service."/>
+            </sidebar>
+            <sidebar id="space-admin" name="Space Administration">
+               <item id="space-summary" name="Space Summary" description="List all registered MIRROR Reflection Spaces." url="spaces-space-summary.jsp">
+                   <sitebar id="spaces-configuration" name="Space Configuration">
+                       <item id="space-settings" name="Space Settings" url="spaces-space-edit.jsp" description="Edit the space settings."/>
+                       <item id="space-affiliations" name="Space Members" url="spaces-space-affiliations.jsp" description="Edit the members of the space."/>
+                       <item id="space-datamodels" name="Data Models" url="spaces-space-datamodels.jsp" description="Edit the list of supported data models."/>
+                       <item id="space-delete" name="Delete Space" url="spaces-space-delete.jsp" description="Delete the space."/>
+                   </sitebar>
+               </item>
+               <item id="space-create" name="Create New Space" url="spaces-space-create.jsp" description="Create a new space."/>
+            </sidebar>
+        </tab>
+    </adminconsole>
+</plugin>

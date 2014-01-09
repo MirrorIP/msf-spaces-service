@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>MIRROR Spaces Service - README</title>
+    <style type="text/css">
+        BODY {
+            font-size : 100%;
+        }
+        BODY, TD, TH {
+            font-family : tahoma, verdana, arial, helvetica, sans-serif;
+            font-size : 0.8em;
+        }
+        H2 {
+             font-size : 10pt;
+             font-weight : bold;
+        }
+        A:hover {
+            text-decoration : none;
+        }
+        H1 {
+            font-family : tahoma, arial, helvetica, sans-serif;
+            font-size : 1.4em;
+            font-weight: bold;
+            border-bottom : 1px #ccc solid;
+            padding-bottom : 2px;
+        }
+
+        TT {
+            font-family : courier new;
+            font-weight : bold;
+            color : #060;
+        }
+        PRE {
+            font-family : courier new;
+            font-size : 100%;
+        }
+        
+        SPAN.code {
+        	font-family : courier new;
+        }
+    </style>
+</head>
+<body>
+
+<h1>
+MIRROR Spaces Service - README
+</h1>
+
+<h2>Overview</h2>
+
+<p>
+The MIRROR Spaces Service allows to handle reflection spaces as defined in the Spaces concept of <a href="http://www.mirror-project.eu" target="_blank">MIRROR research project</a>.
+</p>
+
+<h2>Installation</h2>
+
+<p>This version of the MIRROR Spaces Service requires Openfire 3.8.x.</p> 
+<p>To install the plugin perform the following steps:</p>
+<ol>
+	<li>Open the administration console of Openfire and click on the "Plugins" tab.</li>
+	<li>In the "Upload Plugin" section of the page, select the spacesService.jar file and submit it by pressing on the "Upload Plugin" button.</li>
+	<li>After a few seconds, new entry "MIRROR Spaces Service" should show up in the plugins list. You can validate the installation by opening the info log ("Server" &gt; "Server Manager" &gt; "Logs" &gt; "Info") , which should contain a line "MIRROR Spaces plugin initialized.".</li>
+	<li>Open the new "MIRROR Spaces" tab and click on "Settings" to open the general settings for the service.</li>
+	<li>Check the entries in the "Server Configuration" box. Update the settings if necessary.</li>
+</ol>
+
+<h2>Updating an Existing Installation</h2>
+<p>This is the first version of the plugin for Openfire 3.8.x. If you want to upgrade an older version of Openfire, perform the following steps:<p>
+<ol>
+	<li>Open the "Plugins" tab of the openfire administration console and delete the old "MIRROR Spaces Service". Note: Spaces and stored data will remain unaffected.</li>
+	<li>Upgrade your openfire installation as described in the <a href="http://www.igniterealtime.org/builds/openfire/docs/latest/documentation/upgrade-guide.html" target="_blank">upgrade guide</a>.
+	<li>Deploy the plugin as described above.</li>
+</ol>
+
+<h2>Configuration</h2>
+
+<p>If you also deployed the MIRROR Persistence Service you need to connect the services in order to work properly:</p>
+<ol>
+	<li>Open the new "MIRROR Spaces" tab and click on "Settings" to open the general settings for the service.</li>
+	<li>Select the checkbox "Connect to the MIRROR Persistence Service." in the persistence settings.</li>
+	<li>Submit the change by pressing the "Save" button</li>
+</ol> 
+
+<h2>Using the Plug-in</h2>
+
+<p>API specifications and examples can be found in the <span class="code">service-documentation.pdf</span> packaged with the plug-in.<p>
+<p>To manages spaces, you can also use the Openfire administration console ("MIRROR Spaces" &gt; "Space Administration").</p>
+
+</body>
+</html>

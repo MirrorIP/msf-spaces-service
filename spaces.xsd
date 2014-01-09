@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:xmpp:spaces" targetNamespace="urn:xmpp:spaces"
+	xmlns:xdata="jabber:x:data" elementFormDefault="qualified">
+
+	<xs:import namespace="jabber:x:data" schemaLocation="http://xmpp.org/schemas/x-data.xsd" />
+	
+	<xs:element name="spaces" type="spacesType"></xs:element>
+
+	<xs:complexType name="spacesType">
+		<xs:choice minOccurs="1" maxOccurs="1">
+			<xs:sequence>
+				<xs:element ref="create" />
+				<xs:element ref="configure" />
+			</xs:sequence>
+			<xs:element ref="configure" />
+			<xs:element ref="delete" />
+			<xs:element ref="channels" />
+			<xs:element ref="models" />
+		</xs:choice>
+	</xs:complexType>
+
+	<xs:element name="create">
+		<xs:complexType>
+			<xs:attribute name="space" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="configure">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="xdata:x" maxOccurs="1" minOccurs="1"/>
+			</xs:sequence>
+			<xs:attribute name="space" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="delete">
+		<xs:complexType>
+			<xs:attribute name="space" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="channels">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="channel" maxOccurs="unbounded" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="property" maxOccurs="unbounded" minOccurs="0">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute name="key" type="xs:string" use="required" />
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="type" type="xs:string" use="required" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="space" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="models">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="model" maxOccurs="unbounded" minOccurs="0">
+					<xs:complexType>
+						<xs:attribute name="namespace" type="xs:string" use="required" />
+						<xs:attribute name="schemaLocation" type="xs:anyURI" use="required" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="space" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

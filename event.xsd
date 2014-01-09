@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="urn:xmpp:spaces:event" xmlns="urn:xmpp:spaces:event"
+	xmlns:xdata="jabber:x:data"
+	elementFormDefault="qualified">
+	<xs:import namespace="jabber:x:data" schemaLocation="http://xmpp.org/schemas/x-data.xsd" />
+	
+	<xs:element name="event" type="eventType">
+	</xs:element>
+	<xs:complexType name="eventType">
+		<xs:choice>
+			<xs:element name="create" type="spaceConfigurationType" />
+			<xs:element name="configure" type="spaceConfigurationType" />
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="spaceConfigurationType">
+		<xs:sequence>
+			<xs:element ref="xdata:x" maxOccurs="1" minOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="space" type="xs:string" use="required"></xs:attribute>
+	</xs:complexType>
+</xs:schema>
