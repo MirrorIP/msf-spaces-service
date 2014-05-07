@@ -28,7 +28,7 @@ If you also deployed the MIRROR Persistence Service you need to connect the serv
 3. Submit the change by pressing the "Save" button
 
 ## Usage
-API specifications and examples can be found in the `doc` directory.
+API specifications and examples can be found in the `doc` directory and in the [GitHub wiki](https://github.com/MirrorIP/msf-spaces-service/wiki).
 
 ## License
 The MIRROR Spaces Service is released under the [Apache License 2.0][5].
