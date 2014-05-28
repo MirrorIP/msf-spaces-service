@@ -134,7 +134,7 @@ public class SpacesService {
 		// check existence of node
 		if (node == null) {
 			try {
-				addPubSubNodeToSpace(space);
+				node = addPubSubNodeToSpace(space);
 				reports.add(new ValidationReport(Level.WARN, "Restored pubsube node for space " + space.getId() + ". Previously published items are lost.", ValidationReport.Action.REPAIRED));
 			} catch (Exception e) {
 				log.error("Failed to create pubsub node.", e);
@@ -400,14 +400,15 @@ public class SpacesService {
 	 * @throws AlreadyExistsException A pubsub node with the generated node id already exists.
 	 * @throws NotAcceptableException Failed to apply the configuration to the pubsub node.
 	 */
-	private void addPubSubNodeToSpace(Space space) throws AlreadyExistsException, NotAcceptableException {
+	private Node addPubSubNodeToSpace(Space space) throws AlreadyExistsException, NotAcceptableException {
 		Set<JID> memberJIDs = new HashSet<JID>();
 		for (String member : space.getMembers().keySet()) {
 			memberJIDs.add(new JID(member));
 		}
-		Node node = pubSubUtil.createPubSubNode(PubSubConfig.SPACES_NODE_PREFIX + space.getId(), memberJIDs, space.getName(), space.getPersistenceType() == PersistenceType.ON);
+		Node node = pubSubUtil.createPubSubNode(PubSubConfig.SPACES_NODE_PREFIX + space.getId(), memberJIDs, space.getId(), space.getPersistenceType() == PersistenceType.ON);
 		space.setPubSubDomain(pubSubUtil.getServiceDomain());
 		space.setPubSubNode(node.getNodeID());
+		return node;
 	}
 	
 	/**

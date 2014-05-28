@@ -5,8 +5,8 @@
     <name>MIRROR Spaces Service</name>
     <description>Central component of the MIRROR Spaces Framework.</description>
     <author>Simon Schwantzer</author>
-    <version>0.6.1</version>
-    <date>01/09/2014</date>
+    <version>0.6.2-SNAPSHOT</version>
+    <date>05/28/2014</date>
     <url>http://www.mirror-project.eu/</url>
     <minServerVersion>3.8.2</minServerVersion>
     <databaseKey>spaces</databaseKey>

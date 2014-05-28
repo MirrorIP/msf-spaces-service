@@ -35,6 +35,10 @@ The MIRROR Spaces Service is released under the [Apache License 2.0][5].
 
 ## Changelog
 
+v0.6.2-SNAPSHOT
+ * [FIX] Fixed NPE caused when node is created during health check.</li>
+ * [FIX] Nodes with long names no longer break pubsub node creation.</li>
+
 v0.6.1 -- January 9, 2014
 
 * [FIX] Bugfix release.
